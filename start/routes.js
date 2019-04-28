@@ -18,8 +18,15 @@ const Route = use('Route')
 
 Route.group(() => {
 
-  Route.post('pokemon', 'PokemonController.store').middleware(['auth'])
-  Route.get('pokemon', 'PokemonController.index')
-  Route.get('pokemon/:id', 'PokemonController.show')
+  Route.post('pokemons', 'PokemonController.store').middleware(['auth'])
+  Route.get('pokemons', 'PokemonController.index')
+  Route.get('pokemons/:id', 'PokemonController.show')
+  Route.delete('pokemons/:id', 'PokemonController.destroy').middleware(['auth'])
+
+  Route.post("users/register", "AuthController.register");
+  Route.post("users/login", "AuthController.login");
+  Route.get('users/data', 'AuthController.getData').middleware(['auth'])
+  Route.post("users/refresh", "AuthController.generateRefreshToken");
+
 }).prefix('api/v1')
 
