@@ -11,17 +11,6 @@ class Pokemon extends Model {
         return('id');
       }
     
-    //   category() {
-    //     return this.belongsTo('App/Models/Category');
-    //   }
-    //   type() {
-    //     return this.belongsTo('App/Models/Type');
-    //   }
-    //   types() {
-    //     return this.belongsToMany('App/Models/Type');
-    //   }
-    
-
     category(){
         return this.belongsTo('App/Models/Category')
     }

@@ -1,6 +1,7 @@
 'use strict'
 
-class TypePokemonController {
+class TypePokemonController {   
+    
 }
 
 module.exports = TypePokemonController

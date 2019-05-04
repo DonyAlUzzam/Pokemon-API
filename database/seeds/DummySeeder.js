@@ -14,6 +14,7 @@
 const Pokemon = use('App/Models/Pokemon');
 const Category = use('App/Models/Category')
 const Type = use('App/Models/Type');
+const User = use('App/Models/User')
 
 const Factory = use('Factory')
 
@@ -59,6 +60,13 @@ class DummySeeder {
    type5.name = 'Flying';
    await type5.save();
 
+   const user1 = new User();
+   user1.username = 'Dony';
+   user1.email = 'd@gmail.com';
+   user1.password = '12345';
+   await user1.save();
+
+
    const pokemonJSON1 = {
      name: "Bulbasaur",
      image_url: 'https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png',
@@ -102,7 +110,7 @@ class DummySeeder {
   await pokemon3.type().attach(pokemon3Types)
 
   const pokemonJSON4 = {
-    name: "	Ivysaur",
+    name: "Ivysaur",
     image_url: 'https://vignette.wikia.nocookie.net/pokemon/images/7/73/002Ivysaur.png/revision/latest?cb=20140328190847',
     latitude: '-6.3015707',
     longitude: '106.7329167',
@@ -146,10 +154,10 @@ class DummySeeder {
 
   await pokemon6.type().attach(pokemon6Types)
 
-
+  
    const pokemonJSON7 = {
     name: "Charmander",
-    image_url: 'https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png',
+    image_url: 'https://feestinjebeest.nl/wp-content/uploads/Charmander-Pokemon-kinder-onesie2.jpg',
     latitude: '-6.3015707',
     longitude: '106.7329167',
     category_id: category3.id
@@ -165,8 +173,8 @@ class DummySeeder {
   const pokemonJSON8= {
     name: "Charizard",
     image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-    latitude: '-6.3015707',
-    longitude: '106.7329167',
+    latitude: '-6.3008535',
+    longitude: '106.733598',
     category_id: category2.id
   };
 
@@ -179,10 +187,10 @@ class DummySeeder {
 
 
   const pokemonJSON9 = {
-    name: "Charizard",
-    image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-    latitude: '-6.3015707',
-    longitude: '106.7329167',
+    name: "Fearow",
+    image_url: 'https://vignette.wikia.nocookie.net/pokemongo/images/4/41/Fearow.png',
+    latitude: '-6.3006736',
+    longitude: '106.7339279',
     category_id: category2.id
   };
 
@@ -194,10 +202,10 @@ class DummySeeder {
 
 
   const pokemonJSON10 = {
-    name: "Charizard",
-    image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-    latitude: '-6.3015707',
-    longitude: '106.7329167',
+    name: "Pidgay",
+    image_url: 'https://cdn.bulbagarden.net/upload/thumb/7/7a/017Pidgeotto.png/250px-017Pidgeotto.png',
+    latitude: '-6.3017447',
+    longitude: '106.7340385',
     category_id: category2.id
   };
 
@@ -210,13 +218,11 @@ class DummySeeder {
 
 
 
-
-  // adadada
   const pokemonJSON11 = {
-    name: "Bulbasaur",
-    image_url: 'https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png',
-    latitude: '-6.3015707',
-    longitude: '106.7329167',
+    name: "Arbok",
+    image_url: 'https://pokemongo.gamepress.gg/sites/pokemongo/files/styles/240w/public/2016-07/24.png',
+    latitude: '-6.3017325',
+    longitude: '106.7344444',
     category_id: category1.id
   };
 
@@ -226,12 +232,11 @@ class DummySeeder {
 
   await pokemon11.type().attach(pokemon11Types)
 
-  
   const pokemonJSON12 = {
-   name: "Charmander",
-   image_url: 'https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Rattata",
+   image_url: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png',
+   latitude: '-6.3017042',
+   longitude: '106.7344081',
    category_id: category3.id
  };
 
@@ -242,10 +247,10 @@ class DummySeeder {
  await pokemon12.type().attach(pokemon12Types)
 
  const pokemonJSON13= {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Vulpix",
+   image_url: 'https://db.pokemongohub.net/images/official/full/037.png',
+   latitude: '-6.3017477',
+   longitude: '106.7345328',
    category_id: category2.id
  };
 
@@ -256,25 +261,25 @@ class DummySeeder {
  await pokemon13.type().attach(pokemon13Types)
 
  const pokemonJSON14 = {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
-   category_id: category2.id
+   name: "Arcanine",
+   image_url: 'https://vignette.wikia.nocookie.net/sonicpokemon/images/0/01/Arcanine_AG_anime.png',
+   latitude: '-6.3018816',
+   longitude: '106.7351363',
+   category_id: category1.id
  };
 
  const pokemon14 = await Pokemon.create(pokemonJSON14);
 
- const pokemon14Types = [4, 5];
+ const pokemon14Types = [1, 2];
 
  await pokemon14.type().attach(pokemon14Types)
 
 
  const pokemonJSON15 = {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Persian",
+   image_url: 'https://static.pokemonpets.com/images/monsters-images-300-300/53-Persian.png',
+   latitude: '-6.3022484',
+   longitude: '106.7352476',
    category_id: category2.id
  };
 
@@ -287,40 +292,40 @@ class DummySeeder {
  // Pokemon
 
  const pokemonJSON16 = {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
-   category_id: category2.id
+   name: "Oddish",
+   image_url: 'https://lh3.googleusercontent.com/-jgEdfRC2_MY/Vy4EaiHJB1I/AAAAAAAAGWo/S4sD8IN4t9MUjCCWHeMlDmmPwWEobSgkgCCo/s300/Screen%2Bshot%2B2016-05-07%2Bat%2B10.48.43%2BAM.png?refresh=900&resize_h=NaN&resize_w=NaN',
+   latitude: '-6.302242',
+   longitude: '-6.302242',
+   category_id: category3.id
  };
 
  const pokemon16 = await Pokemon.create(pokemonJSON16);
 
- const pokemon16Types = [4, 5];
+ const pokemon16Types = [4];
 
  await pokemon16.type().attach(pokemon16Types)
 
 
   const pokemonJSON17 = {
-   name: "Charmander",
-   image_url: 'https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Machop",
+   image_url: 'http://www.pokego.org/assets/img/pokemon/machoke-pokemon-go.png',
+   latitude: '-6.302242',
+   longitude: '106.7352573',
    category_id: category3.id
  };
 
  const pokemon17 = await Pokemon.create(pokemonJSON17);
 
- const pokemon7Types = [4];
+ const pokemon17Types = [4];
 
  await pokemon17.type().attach(pokemon17Types)
 
 
  const pokemonJSON18= {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Golem",
+   image_url: 'https://cdn.bulbagarden.net/upload/thumb/f/f2/076Golem.png/250px-076Golem.png',
+   latitude: '-6.302242',
+   longitude: '106.7352573',
    category_id: category2.id
  };
 
@@ -333,10 +338,10 @@ class DummySeeder {
 
 
  const pokemonJSON19 = {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Magmar",
+   image_url: 'https://img.rankedboost.com/wp-content/plugins/ice/pokemon/Magmortar-Pokemon-Go.png',
+   latitude: '-6.302242',
+   longitude: '106.7352573',
    category_id: category2.id
  };
 
@@ -348,10 +353,10 @@ class DummySeeder {
 
 
  const pokemonJSON20 = {
-   name: "Charizard",
-   image_url: 'https://img.pokemondb.net/artwork/large/charizard-mega-y.jpg',
-   latitude: '-6.3015707',
-   longitude: '106.7329167',
+   name: "Lapras",
+   image_url: 'https://pokemongo.gamepress.gg/sites/pokemongo/files/styles/240w/public/2018-01/pokemon_icon_131_00.png?itok=SllHXFqB',
+   latitude: '-6.3023616',
+   longitude: '106.7352397',
    category_id: category2.id
  };
 
@@ -362,8 +367,7 @@ class DummySeeder {
  await pokemon20.type().attach(pokemon20Types)
 
 
- 
- }
+  }
  }
 
 module.exports = DummySeeder

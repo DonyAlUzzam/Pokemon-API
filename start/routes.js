@@ -16,17 +16,32 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+const DataGrid = use('DataGrid')
+ 
+
+
 Route.group(() => {
+  Route.post('/', 'PokemonController.store').middleware(['auth'])
+  Route.get('/', 'PokemonController.index')
+  Route.get('/:id', 'PokemonController.show')
+  Route.delete('/:id', 'PokemonController.destroy').middleware(['auth'])
+  Route.patch('/:id', 'PokemonController.update').middleware(['auth'])
+}).prefix('api/v1/pokemons')
 
-  Route.post('pokemons', 'PokemonController.store').middleware(['auth'])
-  Route.get('pokemons', 'PokemonController.index')
-  Route.get('pokemons/:id', 'PokemonController.show')
-  Route.delete('pokemons/:id', 'PokemonController.destroy').middleware(['auth'])
+Route.group(() => {
+  Route.post("/register", "AuthController.register");
+  Route.post("/login", "AuthController.login");
+  Route.get('/data', 'AuthController.getData').middleware(['auth'])
+  Route.post("/refresh", "AuthController.generateRefreshToken");
+}).prefix('api/v1/users')
 
-  Route.post("users/register", "AuthController.register");
-  Route.post("users/login", "AuthController.login");
-  Route.get('users/data', 'AuthController.getData').middleware(['auth'])
-  Route.post("users/refresh", "AuthController.generateRefreshToken");
+Route.group(() => {
+  Route.get("/", "CategoryController.index");
+  Route.get("/:id", "CategoryController.show");
+}).prefix('api/v1/categories')
 
-}).prefix('api/v1')
+Route.group(() => {
+  Route.get("/", "TypeController.index");
+  Route.get("/:id", "TypeController.show");
+}).prefix('api/v1/types')
 
